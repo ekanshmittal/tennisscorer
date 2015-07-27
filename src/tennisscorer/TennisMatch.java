@@ -32,40 +32,6 @@ public class TennisMatch {
 	}
 
 	private void increaseScoreOfPlayer(Player playerA, Player playerB) {
-		TennisScore scorePlayerA = playerA.getScore();
-		TennisScore scorePlayerB = playerB.getScore();
-
-		if (scorePlayerA.getScoreValue() < TennisScore.THIRTY.getScoreValue()) {
-			setScoreForPlayer(playerA, scorePlayerA.getScoreValue() + 1);
-
-		} else if (scorePlayerA == TennisScore.THIRTY) {
-			if (scorePlayerB == TennisScore.FORTY) {
-				playerA.setScore(TennisScore.DEUCE);
-				playerB.setScore(TennisScore.DEUCE);
-			} else {
-				playerA.setScore(TennisScore.FORTY);
-			}
-		} else if (scorePlayerA == TennisScore.FORTY) {
-			playerA.setScore(TennisScore.WON);
-			playerB.setScore(TennisScore.LOST);
-		} else if (scorePlayerA == TennisScore.DEUCE) {
-			if (scorePlayerB == TennisScore.ADVANTAGE) {
-				playerA.setScore(TennisScore.DEUCE);
-				playerB.setScore(TennisScore.DEUCE);
-			} else {
-				playerA.setScore(TennisScore.ADVANTAGE);
-
-			}
-		} else if (scorePlayerA == TennisScore.ADVANTAGE) {
-			playerA.setScore(TennisScore.WON);
-			playerB.setScore(TennisScore.LOST);
-
-		}
+		playerA.getScore().updateScoreForPlayer(playerA, playerB);
 	}
-
-	private void setScoreForPlayer(Player player, Integer score) {
-		player.setScore(TennisScore.findTennisScore(score));
-
-	}
-
 }
