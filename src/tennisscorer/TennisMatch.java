@@ -46,7 +46,7 @@ public class TennisMatch {
 				playerA.setScore(TennisScore.FORTY);
 			}
 		} else if (scorePlayerA == TennisScore.FORTY) {
-			playerA.setScore(TennisScore.WON);
+			playerA.setScore(TennisScore.LOST);
 			playerB.setScore(TennisScore.LOST);
 		} else if (scorePlayerA == TennisScore.DEUCE) {
 			if (scorePlayerB == TennisScore.ADVANTAGE) {
