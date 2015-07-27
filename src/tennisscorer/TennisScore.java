@@ -1,6 +1,6 @@
 package tennisscorer;
 
-public enum TennisScores {
+public enum TennisScore {
 	ZERO("0",0),
 	FIFTEEN("15",1),
 	THIRTY("30",2),
@@ -11,12 +11,16 @@ public enum TennisScores {
 	
 	private String score;
 	private Integer value;
-	TennisScores(String score,Integer value){
+	TennisScore(String score,Integer value){
 		this.score=score;
 		this.value=value;
 	}
+	
 	public String getScore(){
-		
+		return score;
 	}
-	public 
+	
+	public Integer getValue(){
+		return value;
+	}
 }
