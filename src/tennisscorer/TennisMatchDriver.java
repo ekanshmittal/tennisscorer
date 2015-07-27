@@ -11,17 +11,16 @@ public class TennisMatchDriver {
 		for (int i = 0; i < input.length(); i++) {
 			x = input.charAt(i);
 			tennisMatch.updateScore(x);
+			System.out.println(tennisMatch.fetchMatchScore());
 		}
-		System.out.println(tennisMatch.fetchMatchScore());
 	}
 
 	public static void main(String args[]) {
-		while(true){
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter the current match status");
-		String input = scanner.next();
-		computeScore(input);
+		while (true) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Enter the current match status");
+			String input = scanner.next();
+			computeScore(input);
 		}
 	}
-
 }
