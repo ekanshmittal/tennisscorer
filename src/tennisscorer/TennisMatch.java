@@ -25,7 +25,9 @@ public class TennisMatch {
 	}
 
 	public String fetchMatchScore() {
-		return playerA.getScore().getScoreName() + " "
+		return playerA.getPlayerName() + ":"
+				+ playerA.getScore().getScoreName() + " "
+				+ playerB.getPlayerName() + ":"
 				+ playerB.getScore().getScoreName();
 	}
 
