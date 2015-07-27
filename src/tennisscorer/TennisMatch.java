@@ -1,7 +1,5 @@
 package tennisscorer;
 
-import tennisscorer.TennisScore;
-
 public class TennisMatch {
 	private final Character PLAYER_A = 'A';
 	private final Character PLAYER_B = 'B';
@@ -31,37 +29,36 @@ public class TennisMatch {
 				+ playerB.getScore().getScoreName();
 	}
 
-	private Integer increaseScoreOfPlayer(Player playerA, Player playerB) {
-		int scoreValueOfPlayerA = playerA.getScore().getScoreValue();
-		int scoreValueOfPlayerB = playerB.getScore().getScoreValue();
+	private void increaseScoreOfPlayer(Player playerA, Player playerB) {
+		TennisScore scorePlayerA = playerA.getScore();
+		TennisScore scorePlayerB = playerB.getScore();
 
-		if (scoreValueOfPlayerA < TennisScore.THIRTY.getScoreValue()) {
-			setScoreForPlayer(playerA, scoreValueOfPlayerA + 1);
+		if (scorePlayerA.getScoreValue() < TennisScore.THIRTY.getScoreValue()) {
+			setScoreForPlayer(playerA, scorePlayerA.getScoreValue() + 1);
 
-		} else if (scoreValueOfPlayerA == TennisScore.THIRTY.getScoreValue()) {
-			if (scoreValueOfPlayerB == TennisScore.FORTY.getScoreValue()) {
-				setScoreForPlayer(playerA, TennisScore.DEUCE.getScoreValue());
-				setScoreForPlayer(playerB, TennisScore.DEUCE.getScoreValue());
+		} else if (scorePlayerA == TennisScore.THIRTY) {
+			if (scorePlayerB == TennisScore.FORTY) {
+				playerA.setScore(TennisScore.DEUCE);
+				playerB.setScore(TennisScore.DEUCE);
 			} else {
-				setScoreForPlayer(playerA, TennisScore.FORTY.getScoreValue());
+				playerA.setScore(TennisScore.FORTY);
 			}
-		} else if (scoreValueOfPlayerA == TennisScore.FORTY.getScoreValue()) {
-			setScoreForPlayer(playerA, TennisScore.WON.getScoreValue());
-			setScoreForPlayer(playerB, TennisScore.LOST.getScoreValue());
-		} else if (scoreValueOfPlayerA == TennisScore.DEUCE.getScoreValue()) {
-			if (scoreValueOfPlayerB == TennisScore.ADVANTAGE.getScoreValue()) {
-				setScoreForPlayer(playerA, TennisScore.DEUCE.getScoreValue());
-				setScoreForPlayer(playerB, TennisScore.DEUCE.getScoreValue());
+		} else if (scorePlayerA == TennisScore.FORTY) {
+			playerA.setScore(TennisScore.WON);
+			playerB.setScore(TennisScore.LOST);
+		} else if (scorePlayerA == TennisScore.DEUCE) {
+			if (scorePlayerB == TennisScore.ADVANTAGE) {
+				playerA.setScore(TennisScore.DEUCE);
+				playerB.setScore(TennisScore.DEUCE);
 			} else {
-				setScoreForPlayer(playerA,
-						TennisScore.ADVANTAGE.getScoreValue());
+				playerA.setScore(TennisScore.ADVANTAGE);
+
 			}
-		} else if (scoreValueOfPlayerA == TennisScore.ADVANTAGE.getScoreValue()) {
-			setScoreForPlayer(playerA, TennisScore.WON.getScoreValue());
-			setScoreForPlayer(playerB, TennisScore.LOST.getScoreValue());
+		} else if (scorePlayerA == TennisScore.ADVANTAGE) {
+			playerA.setScore(TennisScore.WON);
+			playerB.setScore(TennisScore.LOST);
 
 		}
-		return scoreValueOfPlayerA;
 	}
 
 	private void setScoreForPlayer(Player player, Integer score) {
