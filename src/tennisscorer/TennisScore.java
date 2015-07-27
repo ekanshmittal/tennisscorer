@@ -36,7 +36,14 @@ public enum TennisScore {
 				b.setScore(TennisScore.DEUCE);
 			} else {
 				a.setScore(TennisScore.ADVANTAGE);
+				b.setScore(NON_ADVANTAGE);
 			}
+		}
+	},
+	NON_ADVANTAGE("-"){
+		public void updateScoreForPlayer(Player a, Player b) {
+			a.setScore(TennisScore.DEUCE);
+			b.setScore(TennisScore.DEUCE);
 		}
 	},
 	ADVANTAGE("ADVANTAGE") {
