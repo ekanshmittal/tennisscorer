@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum TennisScore {
 	ZERO("0", 0), FIFTEEN("15", 1), THIRTY("30", 2), FORTY("40", 3), WON("WON",
-			4), DEUCE("DEUCE", 5), ADVANTAGE("ADVANTAGE", 6);
+			4), DEUCE("DEUCE", 5), ADVANTAGE("ADVANTAGE", 6),LOST("LOST",7);
 
 	private String scoreName;
 	private Integer scoreValue;
